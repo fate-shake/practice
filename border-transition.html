@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>transition</title>
+    <style>
+        .btn {
+            padding: 0 20px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .btn::before {
+            content: '';
+            display: block;
+            position: absolute;
+        }
+
+        .btn::after {
+            content: '';
+            display: block;
+            position: absolute;
+        }
+
+        .btn--line {
+            background: none;
+            border: 0;
+            box-sizing: border-box;
+            box-shadow: inset 0 0 0 transparent;
+        }
+
+        .btn--line:before, .btn--line:after {
+            box-sizing: border-box;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+        }
+
+        .btn--line:before {
+            bottom: 0;
+            right: 0;
+            transition: border-color .3s ease-in 0s, width .2s ease-in .1s, height .1s ease-in .0s;
+        }
+
+        .btn--line:after {
+            top: 0;
+            left: 0;
+            transition: border-color .5s ease-in .3s, width .2s ease-in .5s, height .1s ease-in .3s;
+        }
+
+        .btn--line:hover:before {
+            border-left-color: #13CE66;
+            border-bottom-color: #13CE66;
+            width: 100%;
+            height: 100%;
+            transition: border-color .3s ease-out .3s, width .2s ease-out .3s, height .1s ease-out .5s;
+        }
+
+        .btn--line:hover:after {
+            border-top-color: #13CE66;
+            border-right-color: #13CE66;
+            width: 100%;
+            height: 100%;
+            transition: width .2s ease-out 0s, height .1s ease-out .2s;
+        }
+    </style>
+</head>
+<body>
+    <a class="btn btn--line" href="javascript:;">border特效</a>
+</body>
+</html>
